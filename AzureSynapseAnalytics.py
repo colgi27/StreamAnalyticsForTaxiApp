@@ -8,7 +8,7 @@ import json
 
 ### load the model
 
-connection_string = 'DefaultEndpointsProtocol=https;AccountName=taxidata1stacc;AccountKey=2jyi7UxdLYusxkTLHcbdCr3QtmBLNkxejvWhhwhJiP0xs/twOcs9kWAHcWvdpBc8twi0L0tkUiif+ASt8osi3g==;EndpointSuffix=core.windows.net'
+connection_string = ''
 container_name = 'trainedmlmodel'
 blob_name = "random_forest_model.pkl"
 blob_service_client = BlobServiceClient.from_connection_string(connection_string)
@@ -23,7 +23,7 @@ model = joblib.load(io.BytesIO(content))
 server = 'synapse-for-taxi-app.sql.azuresynapse.net'
 database = 'taxi_db'  
 username = 'sqladminuser'  
-password = 'Alina@12345'  
+password = ''  
 driver = '{ODBC Driver 18 for SQL Server}'
 
 connection_string_odbc = f'DRIVER={driver};SERVER={server};DATABASE={database};UID={username};PWD={password}'
