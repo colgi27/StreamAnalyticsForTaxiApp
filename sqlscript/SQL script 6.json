@@ -1,0 +1,17 @@
+{
+	"name": "SQL script 6",
+	"properties": {
+		"content": {
+			"query": "SET ANSI_NULLS ON\nGO\nSET QUOTED_IDENTIFIER ON\nGO\n\nCREATE EXTERNAL TABLE [taxi_db].[locations_metadata]\n( \n\t[row_id] [int]  NULL,\n\t[location] [nvarchar](255)  NULL,\n\t[loc_id] [int]  NULL\n)\nWITH (DATA_SOURCE = [metadata_source], LOCATION = N'locations.csv', FILE_FORMAT = [CsvFileFormat], REJECT_TYPE = VALUE, REJECT_VALUE = 0 )\nGO",
+			"metadata": {
+				"language": "sql"
+			},
+			"currentConnection": {
+				"databaseName": "taxisqlpool",
+				"poolName": "taxisqlpool"
+			},
+			"resultLimit": 5000
+		},
+		"type": "SqlQuery"
+	}
+}
