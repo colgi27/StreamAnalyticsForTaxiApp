@@ -1,0 +1,17 @@
+{
+	"name": "SQL script 9",
+	"properties": {
+		"content": {
+			"query": "SET ANSI_NULLS ON\nGO\nSET QUOTED_IDENTIFIER ON\nGO\n\nCREATE VIEW [taxi_db].[calls_result]\nAS SELECT EventEnqueuedUtcTime,\ntrip_id,\nbooking_timestamp,\npassenger_pick_up_time,\norder_completion_time,\nstatus\n \nFROM taxi_db.taxi_calls_table;\nGO",
+			"metadata": {
+				"language": "sql"
+			},
+			"currentConnection": {
+				"databaseName": "taxisqlpool",
+				"poolName": "taxisqlpool"
+			},
+			"resultLimit": 5000
+		},
+		"type": "SqlQuery"
+	}
+}
