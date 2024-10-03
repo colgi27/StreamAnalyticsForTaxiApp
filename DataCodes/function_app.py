@@ -15,7 +15,7 @@ def main(req: func.HttpRequest) -> func.HttpResponse:
 
     try:
         ### Load the model from blob storage
-        connection_string = 'DefaultEndpointsProtocol=https;AccountName=taxidata1stacc;AccountKey=2wHy8vV5811jt6gWMbv37JMH+XNh09DbkCmCElLIJC8mdJBKhPE8lq6yK1QnTNH7qSqzbItFKmt5+AStvnXHeQ==;EndpointSuffix=core.windows.net'
+        connection_string = ''
         container_name = 'trainedmlmodel'
         blob_name = "random_forest_model.pkl"
         blob_service_client = BlobServiceClient.from_connection_string(connection_string)
@@ -29,7 +29,7 @@ def main(req: func.HttpRequest) -> func.HttpResponse:
         server = 'synapse-for-taxi-app.sql.azuresynapse.net'
         database = 'taxisqlpool'
         username = 'taxisqladminuser2'
-        password = 'Alina@12345'
+        password = ''
         driver = '{ODBC Driver 18 for SQL Server}'
 
         connection_string_odbc = f'DRIVER={driver};SERVER={server};DATABASE={database};UID={username};PWD={password}'
