@@ -1,0 +1,36 @@
+{
+    "id": "/subscriptions/81b7c65b-7da8-421c-8efb-f1bc4686ff48/resourceGroups/taxiapp/providers/Microsoft.StreamAnalytics/streamingjobs/taxiappstreamjob",
+    "name": "taxiappstreamjob",
+    "type": "Microsoft.StreamAnalytics/streamingjobs",
+    "location": "Central India",
+    "tags": {
+        "hidden-link:/Microsoft.StreamAnalytics/streamingjobs/settings": "{\"createdFrom\":\"Portal\"}"
+    },
+    "properties": {
+        "sku": {
+            "name": "StandardV2"
+        },
+        "jobId": "16937a96-d875-4649-a0d9-27d95da422ec",
+        "provisioningState": "Succeeded",
+        "jobState": "Stopped",
+        "outputStartMode": "JobStartTime",
+        "outputStartTime": "2024-09-23T07:12:36.85Z",
+        "lastOutputEventTime": "2024-09-23T08:27:55.072Z",
+        "eventsOutOfOrderPolicy": "Adjust",
+        "outputErrorPolicy": "Stop",
+        "eventsOutOfOrderMaxDelayInSeconds": 0,
+        "eventsLateArrivalMaxDelayInSeconds": 5,
+        "dataLocale": "en-US",
+        "createdDate": "2024-09-04T06:46:42.433Z",
+        "compatibilityLevel": "1.2",
+        "jobStorageAccount": null,
+        "contentStoragePolicy": "SystemAccount",
+        "jobType": "Cloud",
+        "cluster": null
+    },
+    "identity": {
+        "type": "SystemAssigned",
+        "principalId": "b3e42502-86ff-407c-a638-d91bce3fab8a",
+        "tenantId": "8332f225-8fdd-4195-b172-464f751ae148"
+    }
+}
