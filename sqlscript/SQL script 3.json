@@ -1,0 +1,17 @@
+{
+	"name": "SQL script 3",
+	"properties": {
+		"content": {
+			"query": "SET ANSI_NULLS ON\nGO\nSET QUOTED_IDENTIFIER ON\nGO\n\nCREATE TABLE [taxi_db].[PREDICTIONS]\n( \n\t[eventenqueuedutctime] [varchar](50)  NULL,\n\t[trip_id] [varchar](50)  NULL,\n\t[booking_source] [varchar](50)  NULL,\n\t[day_of_week] [varchar](20)  NULL,\n\t[drivers_review] [varchar](50)  NULL,\n\t[estimated_arrival_time_in_m] [varchar](50)  NULL,\n\t[time_of_day] [varchar](20)  NULL,\n\t[traffic_conditions] [varchar](50)  NULL,\n\t[weather_conditions] [varchar](50)  NULL,\n\t[prob_of_cancellation] [float]  NULL\n)\nWITH\n(\n\tDISTRIBUTION = HASH ( [trip_id] ),\n\tCLUSTERED COLUMNSTORE INDEX\n)\nGO",
+			"metadata": {
+				"language": "sql"
+			},
+			"currentConnection": {
+				"databaseName": "taxisqlpool",
+				"poolName": "taxisqlpool"
+			},
+			"resultLimit": 5000
+		},
+		"type": "SqlQuery"
+	}
+}
