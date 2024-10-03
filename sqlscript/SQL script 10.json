@@ -1,0 +1,17 @@
+{
+	"name": "SQL script 10",
+	"properties": {
+		"content": {
+			"query": "SET ANSI_NULLS ON\nGO\nSET QUOTED_IDENTIFIER ON\nGO\n\nCREATE VIEW [taxi_db].[metrics_real_time]\nAS WITH trip_info AS (\n    SELECT\n        tcb.trip_id,\n        tcb.drivers_current_lat,\n        tcb.drivers_current_lon,\n        tcb.passenger_current_lat,\n        tcb.passenger_current_lon,\n        loc.location AS pickup_location,\n        TRY_CAST (PARSENAME(REPLACE(user_id, '_', '.'), 1) AS INT) AS user_id_code,\n        TRY_CAST (PARSENAME(REPLACE(driver_id, '_', '.'), 1) AS INT) AS driver_id_code\n    FROM\n        taxi_db.taxi_calls_table tcb\n    JOIN\n        taxi_db.locations_metadata loc ON loc.loc_id = tcb.pickup_location\n),\n\nall_fields AS (\n    SELECT \n        ps.*,\n        cr.status,\n        TRY_CAST(cr.booking_timestamp AS DATETIME) AS booking_timestamp,\n        TRY_CAST(cr.order_completion_time AS DATETIME) AS order_completion_time,\n        linf.drivers_current_lat,\n        linf.drivers_current_lon,\n        linf.passenger_current_lat,\n        linf.passenger_current_lon,\n        linf.pickup_location,\n        CONCAT(dri.name, '_', dri.surname) AS drivers_info,\n        CONCAT(users.name, '_', users.surname) AS users_info\n    FROM \n        taxi_db.predictions ps\n    JOIN \n        taxi_db.calls_result cr ON cr.trip_id = ps.trip_id\n    JOIN \n        trip_info linf ON linf.trip_id = ps.trip_id\n    JOIN \n        taxi_db.users_metadata users ON users.id = linf.user_id_code\n    JOIN \n        taxi_db.drivers_metadata dri ON dri.id = linf.driver_id_code\n),\n\n distance_in_km AS (\n    SELECT\n        trip_id,\n        booking_source,\n        pickup_location,\n        drivers_info,\n        users_info,\n        DATEDIFF(MINUTE, CAST(booking_timestamp AS DATETIME), CAST(order_completion_time AS DATETIME)) AS wasted_time_in_min,\n        CAST(6371 * ACOS(\n            SIN(RADIANS(CAST(passenger_current_lat AS FLOAT))) * SIN(RADIANS(CAST(drivers_current_lat AS FLOAT))) +\n            COS(RADIANS(CAST(passenger_current_lat AS FLOAT))) * COS(RADIANS(CAST(drivers_current_lat AS FLOAT))) *\n            COS(RADIANS(CAST(passenger_current_lon AS FLOAT) - CAST(drivers_current_lon AS FLOAT)))\n        ) AS FLOAT) AS distance_in_km\n    FROM all_fields\n    WHERE prob_of_cancellation > 0.7 AND status = 'cancelled'\n)\nSELECT * FROM distance_in_km;\nGO",
+			"metadata": {
+				"language": "sql"
+			},
+			"currentConnection": {
+				"databaseName": "taxisqlpool",
+				"poolName": "taxisqlpool"
+			},
+			"resultLimit": 5000
+		},
+		"type": "SqlQuery"
+	}
+}
