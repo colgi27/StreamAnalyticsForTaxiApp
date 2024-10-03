@@ -1,0 +1,59 @@
+{
+	"name": "predictions_dataset",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "ln_synapse_analytics",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "AzureSqlDWTable",
+		"schema": [
+			{
+				"name": "eventenqueuedutctime",
+				"type": "varchar"
+			},
+			{
+				"name": "trip_id",
+				"type": "varchar"
+			},
+			{
+				"name": "booking_source",
+				"type": "varchar"
+			},
+			{
+				"name": "day_of_week",
+				"type": "varchar"
+			},
+			{
+				"name": "drivers_review",
+				"type": "varchar"
+			},
+			{
+				"name": "estimated_arrival_time_in_m",
+				"type": "varchar"
+			},
+			{
+				"name": "time_of_day",
+				"type": "varchar"
+			},
+			{
+				"name": "traffic_conditions",
+				"type": "varchar"
+			},
+			{
+				"name": "weather_conditions",
+				"type": "varchar"
+			},
+			{
+				"name": "prob_of_cancellation",
+				"type": "float",
+				"precision": 15
+			}
+		],
+		"typeProperties": {
+			"schema": "taxi_db",
+			"table": "PREDICTIONS"
+		}
+	},
+	"type": "Microsoft.Synapse/workspaces/datasets"
+}

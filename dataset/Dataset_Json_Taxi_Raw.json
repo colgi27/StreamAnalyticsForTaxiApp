@@ -1,0 +1,122 @@
+{
+	"name": "Dataset_Json_Taxi_Raw",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "ln_blob_storage",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "Json",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobStorageLocation",
+				"container": "taxistreamdata"
+			}
+		},
+		"schema": {
+			"type": "object",
+			"properties": {
+				"booking_source": {
+					"type": "string"
+				},
+				"booking_timestamp": {
+					"type": "string"
+				},
+				"day_of_week": {
+					"type": "string"
+				},
+				"destination_location": {
+					"type": "integer"
+				},
+				"driver_id": {
+					"type": "string"
+				},
+				"drivers_current_lat": {
+					"type": "number"
+				},
+				"drivers_current_lon": {
+					"type": "number"
+				},
+				"drivers_location": {
+					"type": "integer"
+				},
+				"drivers_review": {
+					"type": "number"
+				},
+				"estimated_arrival_time_in_m": {
+					"type": "integer"
+				},
+				"estimated_fare": {
+					"type": "number"
+				},
+				"n_passengers": {
+					"type": "integer"
+				},
+				"order_completion_time": {
+					"type": "string"
+				},
+				"passenger_arrival_lat": {
+					"type": "number"
+				},
+				"passenger_arrival_lon": {
+					"type": "number"
+				},
+				"passenger_current_lat": {
+					"type": "number"
+				},
+				"passenger_current_lon": {
+					"type": "number"
+				},
+				"passenger_pick_up_time": {
+					"type": "string"
+				},
+				"pickup_location": {
+					"type": "integer"
+				},
+				"status": {
+					"type": "string"
+				},
+				"taxi_id": {
+					"type": "string"
+				},
+				"time_of_day": {
+					"type": "string"
+				},
+				"traffic_conditions": {
+					"type": "string"
+				},
+				"trip_distance": {
+					"type": "number"
+				},
+				"trip_duration": {
+					"type": "string"
+				},
+				"trip_id": {
+					"type": "string"
+				},
+				"trip_rating": {
+					"type": "number"
+				},
+				"user_id": {
+					"type": "string"
+				},
+				"vehicle_details": {
+					"type": "string"
+				},
+				"weather_conditions": {
+					"type": "string"
+				},
+				"EventProcessedUtcTime": {
+					"type": "string"
+				},
+				"PartitionId": {
+					"type": "integer"
+				},
+				"EventEnqueuedUtcTime": {
+					"type": "string"
+				}
+			}
+		}
+	},
+	"type": "Microsoft.Synapse/workspaces/datasets"
+}

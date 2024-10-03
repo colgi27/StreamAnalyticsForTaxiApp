@@ -1,0 +1,53 @@
+{
+	"name": "Dataset_Predictions_Json",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "ln_blob_storage",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "Json",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobStorageLocation",
+				"container": "predictions"
+			}
+		},
+		"schema": {
+			"type": "object",
+			"properties": {
+				"eventenqueuedutctime": {
+					"type": "string"
+				},
+				"trip_id": {
+					"type": "string"
+				},
+				"booking_source": {
+					"type": "string"
+				},
+				"day_of_week": {
+					"type": "string"
+				},
+				"drivers_review": {
+					"type": "string"
+				},
+				"estimated_arrival_time_in_m": {
+					"type": "string"
+				},
+				"time_of_day": {
+					"type": "string"
+				},
+				"traffic_conditions": {
+					"type": "string"
+				},
+				"weather_conditions": {
+					"type": "string"
+				},
+				"prob_of_cancellation": {
+					"type": "number"
+				}
+			}
+		}
+	},
+	"type": "Microsoft.Synapse/workspaces/datasets"
+}

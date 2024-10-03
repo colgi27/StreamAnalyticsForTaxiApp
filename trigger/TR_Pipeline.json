@@ -1,0 +1,24 @@
+{
+	"name": "TR_Pipeline",
+	"properties": {
+		"annotations": [],
+		"runtimeState": "Stopped",
+		"pipelines": [
+			{
+				"pipelineReference": {
+					"referenceName": "Pipeline 3",
+					"type": "PipelineReference"
+				}
+			}
+		],
+		"type": "BlobEventsTrigger",
+		"typeProperties": {
+			"blobPathBeginsWith": "/taxistreamdata/blobs/",
+			"ignoreEmptyBlobs": true,
+			"scope": "/subscriptions/81b7c65b-7da8-421c-8efb-f1bc4686ff48/resourceGroups/taxiapp/providers/Microsoft.Storage/storageAccounts/taxidata1stacc",
+			"events": [
+				"Microsoft.Storage.BlobCreated"
+			]
+		}
+	}
+}

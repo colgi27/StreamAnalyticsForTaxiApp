@@ -1,0 +1,152 @@
+{
+	"name": "dataset_synapse",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "ln_synapse_analytics",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "AzureSqlDWTable",
+		"schema": [
+			{
+				"name": "booking_source",
+				"type": "varchar"
+			},
+			{
+				"name": "booking_timestamp",
+				"type": "varchar"
+			},
+			{
+				"name": "day_of_week",
+				"type": "varchar"
+			},
+			{
+				"name": "destination_location",
+				"type": "varchar"
+			},
+			{
+				"name": "driver_id",
+				"type": "varchar"
+			},
+			{
+				"name": "drivers_current_lat",
+				"type": "varchar"
+			},
+			{
+				"name": "drivers_current_lon",
+				"type": "varchar"
+			},
+			{
+				"name": "drivers_location",
+				"type": "varchar"
+			},
+			{
+				"name": "drivers_review",
+				"type": "varchar"
+			},
+			{
+				"name": "estimated_arrival_time_in_m",
+				"type": "varchar"
+			},
+			{
+				"name": "estimated_fare",
+				"type": "varchar"
+			},
+			{
+				"name": "n_passengers",
+				"type": "varchar"
+			},
+			{
+				"name": "order_completion_time",
+				"type": "varchar"
+			},
+			{
+				"name": "passenger_arrival_lat",
+				"type": "varchar"
+			},
+			{
+				"name": "passenger_arrival_lon",
+				"type": "varchar"
+			},
+			{
+				"name": "passenger_current_lat",
+				"type": "varchar"
+			},
+			{
+				"name": "passenger_current_lon",
+				"type": "varchar"
+			},
+			{
+				"name": "passenger_pick_up_time",
+				"type": "varchar"
+			},
+			{
+				"name": "pickup_location",
+				"type": "varchar"
+			},
+			{
+				"name": "status",
+				"type": "varchar"
+			},
+			{
+				"name": "taxi_id",
+				"type": "varchar"
+			},
+			{
+				"name": "time_of_day",
+				"type": "varchar"
+			},
+			{
+				"name": "traffic_conditions",
+				"type": "varchar"
+			},
+			{
+				"name": "trip_distance",
+				"type": "float",
+				"precision": 15
+			},
+			{
+				"name": "trip_duration",
+				"type": "varchar"
+			},
+			{
+				"name": "trip_id",
+				"type": "varchar"
+			},
+			{
+				"name": "trip_rating",
+				"type": "float",
+				"precision": 15
+			},
+			{
+				"name": "user_id",
+				"type": "varchar"
+			},
+			{
+				"name": "vehicle_details",
+				"type": "varchar"
+			},
+			{
+				"name": "weather_conditions",
+				"type": "varchar"
+			},
+			{
+				"name": "EventProcessedUtcTime",
+				"type": "varchar"
+			},
+			{
+				"name": "PartitionId",
+				"type": "varchar"
+			},
+			{
+				"name": "EventEnqueuedUtcTime",
+				"type": "varchar"
+			}
+		],
+		"typeProperties": {
+			"schema": "taxi_db",
+			"table": "taxi_calls_table"
+		}
+	},
+	"type": "Microsoft.Synapse/workspaces/datasets"
+}

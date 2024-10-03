@@ -1,0 +1,363 @@
+{
+	"name": "Pipeline 1",
+	"properties": {
+		"activities": [
+			{
+				"name": "RawBlobToStorage",
+				"type": "Copy",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "0.12:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"source": {
+						"type": "JsonSource",
+						"storeSettings": {
+							"type": "AzureBlobStorageReadSettings",
+							"recursive": true,
+							"wildcardFileName": "*.json",
+							"enablePartitionDiscovery": false
+						},
+						"formatSettings": {
+							"type": "JsonReadSettings"
+						}
+					},
+					"sink": {
+						"type": "SqlDWSink",
+						"allowCopyCommand": true
+					},
+					"enableStaging": true,
+					"stagingSettings": {
+						"linkedServiceName": {
+							"referenceName": "ln_blob_storage",
+							"type": "LinkedServiceReference"
+						},
+						"path": "staging"
+					},
+					"translator": {
+						"type": "TabularTranslator",
+						"mappings": [
+							{
+								"source": {
+									"path": "$['booking_source']"
+								},
+								"sink": {
+									"name": "booking_source",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"path": "$['booking_timestamp']"
+								},
+								"sink": {
+									"name": "booking_timestamp",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"path": "$['day_of_week']"
+								},
+								"sink": {
+									"name": "day_of_week",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"path": "$['destination_location']"
+								},
+								"sink": {
+									"name": "destination_location",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"path": "$['driver_id']"
+								},
+								"sink": {
+									"name": "driver_id",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"path": "$['drivers_current_lat']"
+								},
+								"sink": {
+									"name": "drivers_current_lat",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"path": "$['drivers_current_lon']"
+								},
+								"sink": {
+									"name": "drivers_current_lon",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"path": "$['drivers_location']"
+								},
+								"sink": {
+									"name": "drivers_location",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"path": "$['drivers_review']"
+								},
+								"sink": {
+									"name": "drivers_review",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"path": "$['estimated_arrival_time_in_m']"
+								},
+								"sink": {
+									"name": "estimated_arrival_time_in_m",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"path": "$['estimated_fare']"
+								},
+								"sink": {
+									"name": "estimated_fare",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"path": "$['n_passengers']"
+								},
+								"sink": {
+									"name": "n_passengers",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"path": "$['order_completion_time']"
+								},
+								"sink": {
+									"name": "order_completion_time",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"path": "$['passenger_arrival_lat']"
+								},
+								"sink": {
+									"name": "passenger_arrival_lat",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"path": "$['passenger_arrival_lon']"
+								},
+								"sink": {
+									"name": "passenger_arrival_lon",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"path": "$['passenger_current_lat']"
+								},
+								"sink": {
+									"name": "passenger_current_lat",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"path": "$['passenger_current_lon']"
+								},
+								"sink": {
+									"name": "passenger_current_lon",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"path": "$['passenger_pick_up_time']"
+								},
+								"sink": {
+									"name": "passenger_pick_up_time",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"path": "$['pickup_location']"
+								},
+								"sink": {
+									"name": "pickup_location",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"path": "$['status']"
+								},
+								"sink": {
+									"name": "status",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"path": "$['taxi_id']"
+								},
+								"sink": {
+									"name": "taxi_id",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"path": "$['time_of_day']"
+								},
+								"sink": {
+									"name": "time_of_day",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"path": "$['traffic_conditions']"
+								},
+								"sink": {
+									"name": "traffic_conditions",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"path": "$['trip_distance']"
+								},
+								"sink": {
+									"name": "trip_distance",
+									"type": "Double"
+								}
+							},
+							{
+								"source": {
+									"path": "$['trip_duration']"
+								},
+								"sink": {
+									"name": "trip_duration",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"path": "$['trip_id']"
+								},
+								"sink": {
+									"name": "trip_id",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"path": "$['trip_rating']"
+								},
+								"sink": {
+									"name": "trip_rating",
+									"type": "Double"
+								}
+							},
+							{
+								"source": {
+									"path": "$['user_id']"
+								},
+								"sink": {
+									"name": "user_id",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"path": "$['vehicle_details']"
+								},
+								"sink": {
+									"name": "vehicle_details",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"path": "$['weather_conditions']"
+								},
+								"sink": {
+									"name": "weather_conditions",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"path": "$['EventProcessedUtcTime']"
+								},
+								"sink": {
+									"name": "EventProcessedUtcTime",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"path": "$['PartitionId']"
+								},
+								"sink": {
+									"name": "PartitionId",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"path": "$['EventEnqueuedUtcTime']"
+								},
+								"sink": {
+									"name": "EventEnqueuedUtcTime",
+									"type": "String"
+								}
+							}
+						]
+					}
+				},
+				"inputs": [
+					{
+						"referenceName": "Dataset_Json_Taxi_Raw",
+						"type": "DatasetReference"
+					}
+				],
+				"outputs": [
+					{
+						"referenceName": "dataset_synapse",
+						"type": "DatasetReference"
+					}
+				]
+			}
+		],
+		"annotations": [],
+		"lastPublishTime": "2024-09-20T07:43:38Z"
+	},
+	"type": "Microsoft.Synapse/workspaces/pipelines"
+}

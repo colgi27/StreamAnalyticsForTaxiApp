@@ -1,0 +1,38 @@
+{
+	"name": "Pipeline 2",
+	"properties": {
+		"activities": [
+			{
+				"name": "Azure Function to Predict taxi call status",
+				"type": "AzureFunctionActivity",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "0.12:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"functionName": "http_trigger_tester_function",
+					"body": {
+						"blob_connection_string": "your_blob_storage_connection_string",
+						"input_container_name": "trainedmlmodel",
+						"input_blob_name": "random_forest_model.pkl",
+						"output_container_name": "predictions",
+						"output_blob_name": "predictions.json"
+					},
+					"method": "POST"
+				},
+				"linkedServiceName": {
+					"referenceName": "ln_AzureFunction",
+					"type": "LinkedServiceReference"
+				}
+			}
+		],
+		"annotations": [],
+		"lastPublishTime": "2024-09-20T07:43:29Z"
+	},
+	"type": "Microsoft.Synapse/workspaces/pipelines"
+}

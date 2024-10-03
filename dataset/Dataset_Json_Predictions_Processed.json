@@ -1,0 +1,19 @@
+{
+	"name": "Dataset_Json_Predictions_Processed",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "ln_blob_storage",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "Json",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobStorageLocation",
+				"container": "predictionsprocessed"
+			}
+		},
+		"schema": {}
+	},
+	"type": "Microsoft.Synapse/workspaces/datasets"
+}
