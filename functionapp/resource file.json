@@ -1,0 +1,45 @@
+{
+    "id": "/subscriptions/81b7c65b-7da8-421c-8efb-f1bc4686ff48/resourceGroups/taxifunctionsapp3/providers/Microsoft.Web/sites/taxifunctionsapp/functions/main",
+    "name": "taxifunctionsapp/main",
+    "type": "Microsoft.Web/sites/functions",
+    "location": "UAE North",
+    "properties": {
+        "name": "main",
+        "function_app_id": null,
+        "script_root_path_href": null,
+        "script_href": "https://taxifunctionsapp.azurewebsites.net/admin/vfs/home/site/wwwroot/function_app.py",
+        "config_href": null,
+        "test_data_href": "https://taxifunctionsapp.azurewebsites.net/admin/vfs/tmp/FunctionsData/main.dat",
+        "secrets_file_href": null,
+        "href": "https://taxifunctionsapp.azurewebsites.net/admin/functions/main",
+        "config": {
+            "name": "main",
+            "entryPoint": "main",
+            "scriptFile": "function_app.py",
+            "language": "python",
+            "functionDirectory": "/home/site/wwwroot",
+            "bindings": [
+                {
+                    "direction": "IN",
+                    "type": "httpTrigger",
+                    "name": "req",
+                    "methods": [
+                        "POST"
+                    ],
+                    "authLevel": "FUNCTION",
+                    "route": "http_trigger_tester_function"
+                },
+                {
+                    "direction": "OUT",
+                    "type": "http",
+                    "name": "$return"
+                }
+            ]
+        },
+        "files": null,
+        "test_data": "",
+        "invoke_url_template": "https://taxifunctionsapp.azurewebsites.net/api/http_trigger_tester_function",
+        "language": "python",
+        "isDisabled": false
+    }
+}
