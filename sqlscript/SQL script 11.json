@@ -1,0 +1,17 @@
+{
+	"name": "SQL script 11",
+	"properties": {
+		"content": {
+			"query": "SET ANSI_NULLS ON\nGO\nSET QUOTED_IDENTIFIER ON\nGO\n\nCREATE VIEW [taxi_db].[ml_mart]\nAS SELECT\n  EventEnqueuedUtcTime,\n  trip_id,\n  booking_source,\n  day_of_week,\n  drivers_review,\n  estimated_arrival_time_in_m,\n  time_of_day,\n  traffic_conditions,\n  weather_conditions\nFROM taxi_db.taxi_calls_table\nwhere EventEnqueuedUtcTime = (select max(EventEnqueuedUtcTime) from taxi_db.taxi_calls_table );\nGO",
+			"metadata": {
+				"language": "sql"
+			},
+			"currentConnection": {
+				"databaseName": "taxisqlpool",
+				"poolName": "taxisqlpool"
+			},
+			"resultLimit": 5000
+		},
+		"type": "SqlQuery"
+	}
+}
