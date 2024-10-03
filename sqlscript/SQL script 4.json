@@ -1,0 +1,17 @@
+{
+	"name": "SQL script 4",
+	"properties": {
+		"content": {
+			"query": "SET ANSI_NULLS ON\nGO\nSET QUOTED_IDENTIFIER ON\nGO\n\nCREATE TABLE [taxi_db].[taxi_calls_table]\n( \n\t[booking_source] [varchar](50)  NULL,\n\t[booking_timestamp] [varchar](50)  NULL,\n\t[day_of_week] [varchar](20)  NULL,\n\t[destination_location] [varchar](50)  NULL,\n\t[driver_id] [varchar](20)  NULL,\n\t[drivers_current_lat] [varchar](50)  NULL,\n\t[drivers_current_lon] [varchar](50)  NULL,\n\t[drivers_location] [varchar](50)  NULL,\n\t[drivers_review] [varchar](50)  NULL,\n\t[estimated_arrival_time_in_m] [varchar](50)  NULL,\n\t[estimated_fare] [varchar](50)  NULL,\n\t[n_passengers] [varchar](50)  NULL,\n\t[order_completion_time] [varchar](50)  NULL,\n\t[passenger_arrival_lat] [varchar](50)  NULL,\n\t[passenger_arrival_lon] [varchar](50)  NULL,\n\t[passenger_current_lat] [varchar](50)  NULL,\n\t[passenger_current_lon] [varchar](50)  NULL,\n\t[passenger_pick_up_time] [varchar](50)  NULL,\n\t[pickup_location] [varchar](50)  NULL,\n\t[status] [varchar](20)  NULL,\n\t[taxi_id] [varchar](20)  NULL,\n\t[time_of_day] [varchar](20)  NULL,\n\t[traffic_conditions] [varchar](20)  NULL,\n\t[trip_distance] [float]  NULL,\n\t[trip_duration] [varchar](20)  NULL,\n\t[trip_id] [varchar](50)  NULL,\n\t[trip_rating] [float]  NULL,\n\t[user_id] [varchar](20)  NULL,\n\t[vehicle_details] [varchar](20)  NULL,\n\t[weather_conditions] [varchar](20)  NULL,\n\t[EventProcessedUtcTime] [varchar](50)  NULL,\n\t[PartitionId] [varchar](50)  NULL,\n\t[EventEnqueuedUtcTime] [varchar](50)  NULL\n)\nWITH\n(\n\tDISTRIBUTION = HASH ( [trip_id] ),\n\tCLUSTERED COLUMNSTORE INDEX\n)\nGO",
+			"metadata": {
+				"language": "sql"
+			},
+			"currentConnection": {
+				"databaseName": "taxisqlpool",
+				"poolName": "taxisqlpool"
+			},
+			"resultLimit": 5000
+		},
+		"type": "SqlQuery"
+	}
+}
