@@ -9,7 +9,7 @@ def get_data():
     return data_response.text
 
 
-connection_str = 'Endpoint=sb://taxidataeventhub.servicebus.windows.net/;SharedAccessKeyName=taxiappstreamjob_taxi-data-event_policy;SharedAccessKey=cqJNF5cRdXMCYgEHDsA/2x3NcyhDXWGmC+AEhHoDDnY=;EntityPath=taxi_data_event'
+connection_str = ''
 eventhub_name = 'taxi_data_event'
 
 
